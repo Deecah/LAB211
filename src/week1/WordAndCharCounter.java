@@ -10,24 +10,29 @@ public class WordAndCharCounter {
         this.input = input;
     }
      
-    StringTokenizer tokenizer = new StringTokenizer(input);
-
-     
-     Map<String, Integer> countWord(){
-         for(String t : tokenizer){
-             
-         }
-         return null;
-     }
-     
-     Map<Character,Integer> countChar(){
-         return null;
-     }
     
+     Map<String, Integer> countWord = new LinkedHashMap<>();
+     Map<Character,Integer> countChar = new LinkedHashMap<>();
+         
     
-     
-     
-
-    
+    void run(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your content:");
+        input = sc.nextLine();
+        StringTokenizer tokenizer = new StringTokenizer(input," ");
+        while(tokenizer.hasMoreTokens()) {
+            String word = tokenizer.nextToken();
+            countWord.put(word, countWord.getOrDefault(word, 0) + 1);
+        }
+        
+        for (char c : input.toCharArray()) {
+            if (!Character.isWhitespace(c)) { // Bỏ qua khoảng trắng
+                countChar.put(c, countChar.getOrDefault(c, 0) + 1);
+            }
+        }
+        System.out.println(countWord);
+        System.out.println(countChar);
+    }
    
+  
 }
