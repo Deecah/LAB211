@@ -38,11 +38,13 @@ public class LinearSeach {
         display();
         int f=0;
         for(int i=0; i < r.length-1; i++){
-            if(r[i] == s){
-                f=f+1;
-                System.out.println("\nFound "+ s + " at index "+i);
-                break;
-            }
+         
+         if(r[i]==s){
+             System.out.println("\nFound " +s +"index:" +i);
+             f=f+1;
+             break;
+         }
+         
         }
         if(f==0){
             System.out.println("\nNot Found");
