@@ -34,7 +34,7 @@ public class Main {
     }
     void create(){
         System.out.println("---Adding a new student---");
-        String a = Utility.getValidString("^\\d{6,10}$", "Enter student's ID:","Please enter a number!!!" );
+        String a = Utility.getValidString("^[0-9]{3}$", "Enter student's ID:","Please enter a number!!!" );
         String b = Utility.getValidString("^[A-Z][a-z]+(?: [A-Z][a-z]+)*$", "Enter student's name:","Please enter a name!!!" );
         String c = Utility.getValidString("^[A-Z]{4}\\d{4}$", "Enter semester:","Please enter a semester!!" );
         String d = Utility.getValidString("^(Java|\\.Net|C/C\\+\\+)$", "Enter student's course(Java | .Net | C/C++):","Please enter a course (Java | .Net | C/C++)!!!" );

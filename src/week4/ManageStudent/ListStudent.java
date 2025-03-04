@@ -22,6 +22,8 @@ public class ListStudent {
     }
 
     
-    
+    public void addStudent(Student d){
+        stdList.add(d);
+    }
     
 }

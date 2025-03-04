@@ -1,26 +1,34 @@
 package week3;
 
-import java.util.Scanner;
-
 public class BubbleSort {
-    public static void main(String[] args) {  
-        int a = getValidInt("Enter length of array:", "Please enter a number!!!");
-        Mangkhoitao m = new Mangkhoitao(a);
-        m.run();
-
-    }
-    
-     public static int getValidInt(String message, String errormessage) {
-        int num;
-        Scanner sc = new Scanner(System.in);
-        while (true) {
-            try {
-                System.out.print(message);
-                num = Integer.parseInt(sc.nextLine());
-                return num;
-            } catch (NumberFormatException e) {
-                System.out.printf(errormessage);
+    public void sort(int[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = 0; j < array.length - i - 1; j++) {
+                if (array[j] > array[j + 1]) {
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
             }
         }
+    }
+
+    public void displaySortedArray(int[] array) {
+        System.out.print("Sorted array using Bubble Sort: ");
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+    public static void main(String[] args) {
+        Mangkhoitao m = new Mangkhoitao();
+        m.addValue();
+        m.display();
+
+        int[] array1 = m.getArray().clone();
+        BubbleSort bubbleSort = new BubbleSort();
+        bubbleSort.sort(array1);
+        bubbleSort.displaySortedArray(array1);
+        
     }
 }

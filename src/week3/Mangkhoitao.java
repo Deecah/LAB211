@@ -1,54 +1,33 @@
 package week3;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Mangkhoitao {
-
     private int[] array;
 
-    public Mangkhoitao(int a) {
-        this.array = new int[a];
+    public Mangkhoitao() {
+        Scanner sc = new Scanner(System.in);
+        int size = Utility.getValidInt("Enter length of array: ", "Please enter a valid number!");
+        this.array = new int[size];
     }
 
-    void addValue(int[] array) {
+    public void addValue() {
         Random random = new Random();
         for (int i = 0; i < array.length - 1; i++) {
             array[i] = random.nextInt(10);
         }
     }
 
-    void display() {
-        System.out.print("array: \n");
+    public int[] getArray() {
+        return array;
+    }
+
+    public void display() {
+        System.out.print("Array: ");
         for (int i : array) {
             System.out.print(i + " ");
         }
+        System.out.println();
     }
-
-    void run() {
-        addValue(array);
-        display();
-        duyet();
-        System.out.print("\nsorted ");
-        display();
-    }
-
-    void duyet() {
-
-        for (int j = 0; j < array.length - 1; j++) {
-            boolean check = false;
-            for (int i = 0; i < array.length - 1; i++) {
-                if (array[i] > array[i + 1]) {
-                    int temp = array[i];
-                    array[i] = array[i + 1];
-                    array[i + 1] = temp;
-                    check = true;
-                }
-            }
-            if (check == false) {
-                break;
-            }
-        }
-
-    }
-
 }
