@@ -1,13 +1,12 @@
 package week3;
 
+import Utilities.Utility;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Mangkhoitao {
     private int[] array;
 
     public Mangkhoitao() {
-        Scanner sc = new Scanner(System.in);
         int size = Utility.getValidInt("Enter length of array: ", "Please enter a valid number!");
         this.array = new int[size];
     }

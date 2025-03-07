@@ -1,18 +1,20 @@
 
 package week4.StudentAndTeacher;
 
+import java.time.Year;
+
 public class Person  {
     protected int id;
     protected String name;
     protected int phoneNumber;
-    protected int yearOfBirth;
+    protected Year yearOfBirth;
     protected String major;
 
     public Person() {
         this.id = 0;
         this.name = "";
         this.phoneNumber = 0;
-        this.yearOfBirth = 0;
+        this.yearOfBirth = Year.now();
         this.major = "";
     }
 
@@ -40,11 +42,11 @@ public class Person  {
         this.phoneNumber = phoneNumber;
     }
 
-    public int getYearOfBirth() {
+    public Year getYearOfBirth() {
         return yearOfBirth;
     }
 
-    public void setYearOfBirth(int yearOfBirth) {
+    public void setYearOfBirth(Year yearOfBirth) {
         this.yearOfBirth = yearOfBirth;
     }
 
@@ -56,11 +58,4 @@ public class Person  {
         this.major = major;
     }
  
-    public void inputAll(){
-        id = Utility.getValidInt("Enter ID:","ID is 6 digits");
-        name = Utility.getValidString("","","");
-        phoneNumber = Utility.getValidInt("", "");
-        yearOfBirth = Utility.getValidInt("", "");
-        major = Utility.getValidString("", "", "");
-    }
 }

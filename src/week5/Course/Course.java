@@ -2,7 +2,7 @@ package week5.Course;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import Utilities.Utility;
 public class Course {
 
     protected int courseID;

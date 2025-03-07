@@ -1,16 +1,18 @@
 package week4.ManageStudent;
 
+import java.util.ArrayList;
+
 public class Student {
     private String id;
     private String name;
     private String semester;
-    private String courseName;
+    private ArrayList<Course> courseRegisted;
 
-    public Student(String id, String name, String semester, String courseName) {
-        this.id = id;
-        this.name = name;
-        this.semester = semester;
-        this.courseName = courseName;
+    public Student() {
+        this.id = "";
+        this.name = "";
+        this.semester = "";
+        this.courseRegisted = new ArrayList<Course>();
     }
 
     public String getId() {
@@ -37,13 +39,15 @@ public class Student {
         this.semester = semester;
     }
 
-    public String getCourseName() {
-        return courseName;
+    public ArrayList<Course> getCourseRegisted() {
+        return courseRegisted;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
+    public void setCourseRegisted(ArrayList<Course> courseRegisted) {
+        this.courseRegisted = courseRegisted;
     }
+
+    
     
     
 }

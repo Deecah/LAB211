@@ -1,6 +1,6 @@
 
 package week5.Airport;
-
+import Utilities.Utility;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -69,17 +69,14 @@ public class Reservation {
         this.flightInformation = flightInformation;
     }
 
-    @Override
-    public String toString() {
-        return "Reservation{" + "bookingID=" + bookingID + ", customerName=" + customerName + ", phoneNumber=" + phoneNumber + ", roomNumber=" + roomNumber + ", bookingDate=" + bookingDate + ", flightInformation=" + flightInformation + '}';
-    }
+   
     
     public void inputR(List<Reservation> listR){
         while(true){
-            bookingID = Utility.getValidString("^\\d{6}$","Booking ID(X.X.X.X.X.X): ", "Data input is invalid");
+            bookingID = Utility.getValidString("^\\d{6}$","Booking ID(XXXXXX): ", "Data input is invalid");
             boolean isDuplicate = false;
             for(Reservation r : listR){
-                if(r.getBookingID()==bookingID){
+                if(r.getBookingID().equals(bookingID)){
                     isDuplicate = true;
                     System.out.println("Duplicate booking ID!!!");
                 }
@@ -90,9 +87,18 @@ public class Reservation {
         }
         
         customerName = Utility.getValidString("^[A-Za-z ]+$", "Name: ", "Data input is invalid");
-        phoneNumber = Utility.getValidString("^\\d{12}$", "Phone: ", "Data input is invalid");
-        roomNumber = Utility.getValidString("^R\\d{3}$", "Room: ", "Data input is invalid");
-        bookingDate = Utility.getValidDate("Booking Date: ", "Data input is invalid");
+        phoneNumber = Utility.getValidString("^\\d{12}$", "Phone(12 digits): ", "Data input is invalid");
+        roomNumber = Utility.getValidString("^R\\d{3}$", "Room(R-XXX): ", "Data input is invalid");
+        while(true){
+            bookingDate = Utility.getValidDate("Booking Date: ", "Data input is invalid");
+            if (!bookingDate.isBefore(LocalDate.now())){
+                break;
+            }
+            if (bookingDate.isBefore(LocalDate.now())){
+                System.out.println("Invalid data");
+            }
+        }
+        
         flightInformation.input();
     }
 }

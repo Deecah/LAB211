@@ -1,7 +1,7 @@
 package week5.Course;
 
 import java.util.Scanner;
-
+import Utilities.Utility;
 public class Main {
 
     public static void main(String[] args) {
